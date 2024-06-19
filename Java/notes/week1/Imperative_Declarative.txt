@@ -1,0 +1,137 @@
+                                      Styles of Programming
+
+#Imperative Programming
+
+Imperative programming focuses on "how" to compute. 
+It involves giving the computer a sequence of instructions that change the program's state step by step. 
+This style includes detailed control flow constructs like loops and conditionals, and often makes use of mutable state.
+
+Example:
+
+Consider calculating the sum of the first ten natural numbers.
+
+- Imperative Approach:
+            
+            # Python example
+            total = 0
+            for i in range(1, 11):
+                total += i
+            print(total)  # Outputs: 55
+
+
+In this example, you explicitly describe how to calculate the sum by initializing `total` to 0, 
+iterating through numbers 1 to 10, and accumulating the sum.
+
+
+- C Example:
+
+
+#include <stdio.h>
+
+          int main() {
+              int total = 0;
+              for (int i = 1; i <= 10; i++) {
+                  total += i;
+              }
+              printf("%d\n", total);  // Outputs: 55
+              return 0;
+          }
+
+
+Here, the C program follows the same imperative approach, providing a detailed sequence of steps to compute the sum.
+
+
+#Declarative Programming
+
+Declarative programming focuses on "what" the computation should produce rather than how to produce it. 
+It emphasizes describing the desired results without explicitly listing the steps to achieve those results. 
+This style often includes functional programming, which uses functions and avoids mutable state.
+
+Example:
+
+Consider calculating the sum of the first ten natural numbers.
+
+- Declarative Approach in Haskell (Functional Programming):
+
+
+-- Haskell example
+          sum [1..10]  -- Outputs: 55
+
+
+In Haskell, you describe what you want: the sum of the list `[1..10]`, without specifying how to compute it step by step. 
+The Haskell runtime takes care of the computation details.
+
+- Declarative SQL Example:
+
+Suppose you have a database table `numbers` with a column `value` containing the numbers 1 to 10, and you want to sum these values.
+
+
+                  -- SQL example
+                  SELECT SUM(value) AS total
+                  FROM numbers;
+
+
+In SQL, you declare that you want the sum of the `value` column from the `numbers` table. 
+You don’t specify how the database should iterate through the rows and perform the summation.
+
+
+##Functional Programming (A Declarative Style)
+
+Functional programming is a declarative style where computations are expressed as evaluations of functions. 
+It often avoids using intermediate variables and mutable state.
+
+Example:
+
+Consider computing the factorial of a number.
+
+- Imperative Approach in Python:
+
+
+              # Imperative example
+              def factorial(n):
+                  result = 1
+                  for i in range(1, n + 1):
+                      result *= i
+                  return result
+              
+              print(factorial(5))  # Outputs: 120
+
+
+This example uses a loop and an intermediate variable `result` to compute the factorial.
+
+
+- Declarative Functional Approach in Haskell:
+
+
+                -- Haskell example
+                factorial 0 = 1
+                factorial n = n * factorial (n - 1)
+                
+                -- Usage
+                factorial 5  -- Outputs: 120
+
+
+In Haskell, the factorial function is defined recursively without using intermediate variables. 
+It describes what the factorial of a number is in terms of the factorial of a smaller number.
+
+
+#### Comparison
+
+- Imperative Style:
+  - **Focus**: How to compute.
+  - **Examples**: Detailed step-by-step instructions, mutable state, loops.
+  - Languages: C, Java, Python (can be both imperative and declarative).
+
+- Declarative Style:
+  - Focus: What the computation should produce.
+  - Examples: High-level description of the result, functions, immutability.
+  - Languages: SQL, Haskell, Lisp, Prolog.
+
+
+#### Conclusion
+
+Both imperative and declarative programming styles have their strengths and appropriate use cases. 
+Imperative programming is often more intuitive for tasks requiring explicit control over program state and flow, 
+while declarative programming excels in scenarios where the focus is on the end result, leveraging the language’s runtime 
+to handle the execution details. 
+Understanding both styles enriches a programmer's toolkit, allowing for more effective and efficient problem-solving.
